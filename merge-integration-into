@@ -1,0 +1,11 @@
+#!/bin/bash
+
+branch=$(git symbolic-ref --short HEAD)
+echo "*** merging integration into branch $branch"
+git checkout integration
+git pull
+git checkout $branch
+echo "*** accept default auto-merge with :wq"
+git merge integration
+echo "*** execute git push to complete the journey"
+
